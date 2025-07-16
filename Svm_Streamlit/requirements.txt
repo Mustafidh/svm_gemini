@@ -1,10 +1,11 @@
 streamlit
+plotly
 pandas
 numpy
+nltk
 scikit-learn
-joblib
+wordcloud
+Sastrawi
+Pillow
 matplotlib
 seaborn
-openpyxl
-nltk
-Sastrawi
