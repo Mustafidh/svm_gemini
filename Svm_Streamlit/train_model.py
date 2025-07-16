@@ -27,22 +27,26 @@ nltk.download('stopwords')
 st.set_page_config(page_title="Analisis Sentimen Gemini", layout="wide")
 # ==== Load resource ====
 @st.cache_data
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+kamus_path = os.path.join(BASE_DIR, "data", "kamuskatabaku.xlsx")
+positive_path = os.path.join(BASE_DIR, "lexicon", "positive.txt")
+negative_path = os.path.join(BASE_DIR, "lexicon", "negative.txt")
 def load_resources():
     try:
-        kamus_data = pd.read_excel('data/kamuskatabaku.xlsx')
+        kamus_data = pd.read_excel(kamus_file)
         kamus_tidak_baku = dict(zip(kamus_data['tidak_baku'], kamus_data['kata_baku']))
     except:
         kamus_tidak_baku = {}
     
     try:
-        with open('lexicon/positive.txt', 'r', encoding='utf-8') as f:
-            positive_lexicon = set(line.strip() for line in f if line.strip())
+       with open(positive_path, 'r', encoding='utf-8') as f:
+    positive_lexicon = set(line.strip() for line in f if line.strip())
     except:
         positive_lexicon = set()
     
     try:
-        with open('lexicon/negative.txt', 'r', encoding='utf-8') as f:
-            negative_lexicon = set(line.strip() for line in f if line.strip())
+       with open(negative_path, 'r', encoding='utf-8') as f:
+    negative_lexicon = set(line.strip() for line in f if line.strip())
     except:
         negative_lexicon = set()
     
