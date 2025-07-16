@@ -21,13 +21,13 @@ from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Download stopwords
 nltk.download('stopwords')
 st.set_page_config(page_title="Analisis Sentimen Gemini", layout="wide")
 # ==== Load resource ====
 @st.cache_data
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 kamus_path = os.path.join(BASE_DIR, "data", "kamuskatabaku.xlsx")
 positive_path = os.path.join(BASE_DIR, "lexicon", "positive.txt")
 negative_path = os.path.join(BASE_DIR, "lexicon", "negative.txt")
