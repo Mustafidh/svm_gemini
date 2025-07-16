@@ -188,9 +188,16 @@ st.markdown('<div class="main">', unsafe_allow_html=True)
 st.markdown('<h1 class="title">Analisis Sentimen Aplikasi Gemini</h1>', unsafe_allow_html=True)
 
 # Gambar logo
-image_path = os.path.join("img", "gemini.png")
-image = Image.open(image_path)
-st.image(image, caption='')
+try:
+    image_path = os.path.join(os.path.dirname(__file__), "img", "gemini.png")
+    image = Image.open(image_path)
+
+    col1, col2, col3 = st.columns([1, 3, 1])  # kolom tengah lebih lebar
+    with col2:
+        st.image(image, caption='', use_container_width=True)  # ✅ parameter terbaru
+except:
+    st.info("📷 Gambar logo tidak ditemukan, melanjutkan tanpa gambar.")
+
 
 # Subjudul
 st.markdown('<p class="subtitle">Masukkan kalimat dan sistem akan mengklasifikasikan apakah sentimennya <strong>positif</strong> atau <strong>negatif</strong>.</p>', unsafe_allow_html=True)
