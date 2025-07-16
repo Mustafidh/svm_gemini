@@ -12,12 +12,14 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 # Download stopwords (sekali saja)
 nltk.download('stopwords')
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # === Load Resource ===
-model_path = "models/svm_model.pkl"
-vectorizer_path = "models/tfidf_vectorizer.pkl"
-kamus_path = "data/kamuskatabaku.xlsx"
-positive_path = "lexicon/positive.txt"
-negative_path = "lexicon/negative.txt"
+model_path = os.path.join(BASE_DIR, "models", "svm_model.pkl")
+vectorizer_path = os.path.join(BASE_DIR, "models", "tfidf_vectorizer.pkl")
+kamus_path = os.path.join(BASE_DIR, "data", "kamuskatabaku.xlsx")
+positive_path = os.path.join(BASE_DIR, "lexicon", "positive.txt")
+negative_path = os.path.join(BASE_DIR, "lexicon", "negative.txt")
 
 # Cek model
 if not os.path.exists(model_path) or not os.path.exists(vectorizer_path):
