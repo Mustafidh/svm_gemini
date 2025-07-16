@@ -41,15 +41,15 @@ def load_resources():
     
     try:
        with open(positive_path, 'r', encoding='utf-8') as f:
-    positive_lexicon = set(line.strip() for line in f if line.strip())
+            positive_lexicon = set(line.strip() for line in f if line.strip())
     except:
-        positive_lexicon = set()
+            positive_lexicon = set()
     
     try:
        with open(negative_path, 'r', encoding='utf-8') as f:
-    negative_lexicon = set(line.strip() for line in f if line.strip())
+            negative_lexicon = set(line.strip() for line in f if line.strip())
     except:
-        negative_lexicon = set()
+            negative_lexicon = set()
     
     return kamus_tidak_baku, positive_lexicon, negative_lexicon
 
