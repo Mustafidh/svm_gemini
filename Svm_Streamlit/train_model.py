@@ -294,7 +294,7 @@ st.title("🚀 Pelatihan Model SVM untuk Analisis Sentimen Aplikasi Gemini")
 
 # Gambar logo
 try:
-    image_path = os.path.join("img", "gemini.png")
+    image_path = os.path.join(os.path.dirname(__file__), "img", "gemini.png")
     image = Image.open(image_path)
 
     col1, col2, col3 = st.columns([1, 3, 1])  # kolom tengah lebih lebar
